@@ -2,7 +2,7 @@
 
 
 Prie sistemos galima prisijungti su skirtingom rolėm
-* administratoriaus, dėstyotojo, studento
+* administratoriaus, dėstyotojo, studento (gali tik administratorius)
 
 Turėtų leisti sukurti:
 * dėstyotojo, studento ir kurso įrašą
