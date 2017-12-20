@@ -5,6 +5,8 @@
 Prie sistemos galima prisijungti su skirtingom rolėm
 * administratoriaus, dėstyotojo, studento (gali tik administratorius)
 
+Pradinėje stadijoje visa informacija turi būti išsaugojama failuose (vėliau db)
+
 Turėtų leisti sukurti:
 * dėstyotojo, studento ir kurso įrašą
 * pridėti dėstytoją ir studentus prie kurso (gali tik administratorius)
