@@ -1,4 +1,5 @@
-# Mokymosi įstaigos valdymo sistem (REIKALAVIMAI NE GALUTINIAI IR GALI KEISTIS)
+# Mokymosi įstaigos valdymo sistema
+# (REIKALAVIMAI NE GALUTINIAI IR GALI KEISTIS)
 
 
 Prie sistemos galima prisijungti su skirtingom rolėm
