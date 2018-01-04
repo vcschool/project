@@ -49,7 +49,7 @@ Funkcionalumo reikalavimai:
     * pamatyti visų studentų sąrašą
     * pamatyti visų kursų sąrašą
 
-   * Vartotojai su student role gali:
+  * Vartotojai su student role gali:
     * užsiregistruoti į kursą kai:
       * kurso startDate yra ankstenė už dabatinę
       * bendra užseregistuotų kursų kreditų suma mažesnė us 12
