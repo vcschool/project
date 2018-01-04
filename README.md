@@ -1,19 +1,19 @@
 # Mokymosi įstaigos valdymo sistema (pirmas etapas)
 # (REIKALAVIMAI NE GALUTINIAI IR GALI KEISTIS)
 
-Projekto reikalavimai:
+PROJEKTO REIKALAVIMAI:
 
-  Projekto kodas saugomas github'e
-  Projektui valdyti naudojamas maven 
-  Visa programos veikimo metu sukurta infrmacija saugoma failuose
-  Programos logika padengta unit testais
-  Vartotojo sąsajai naudojama konsolė
+  * Projekto kodas saugomas github'e
+  * Projektui valdyti naudojamas maven 
+  * Visa programos veikimo metu sukurta infrmacija saugoma failuose
+  * Programos logika padengta unit testais
+  * Vartotojo sąsajai naudojama konsolė
 
-Funkcionalumo reikalavimai:
-
-  * Pirmą kartą paleidus programą turi egzistuoti vartotojas admin su slaptažodžiu admin, kuris turėtų admin rolę ir galėtų atlikti viskas operacijas programoje.
+FUNKCIONALUMO REIKALAVIMAI:
 
   * Prie sistemos galima prisijungti suvedus username ir password.
+  
+  * Pirmą kartą paleidus programą turi egzistuoti vartotojas admin su slaptažodžiu admin, kuris turėtų admin rolę ir galėtų atlikti visas operacijas programoje.
 
   * Sistemoje naujus vartotojus gali užsiregistruoti tik vartotojai su admin role
 ```
@@ -50,6 +50,8 @@ Funkcionalumo reikalavimai:
     * pamatyti visų kursų sąrašą
 
   * Vartotojai su student role gali:
+    * matyti visų kursų sąrašą
+    * matyti užsiregistruotų kursų sąrašą
     * užsiregistruoti į kursą kai:
       * kurso startDate yra ankstenė už dabatinę
       * bendra užseregistuotų kursų kreditų suma mažesnė us 12
