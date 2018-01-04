@@ -5,7 +5,7 @@ PROJEKTO REIKALAVIMAI:
 
   * Projekto kodas saugomas github'e
   * Projektui valdyti naudojamas maven 
-  * Visa programos veikimo metu sukurta infrmacija saugoma failuose
+  * Visa programos veikimo metu sukurta informacija saugoma failuose
   * Programos logika padengta unit testais
   * Vartotojo sąsajai naudojama konsolė
 
