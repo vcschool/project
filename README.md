@@ -1,20 +1,55 @@
-# Mokymosi įstaigos valdymo sistema
+# Mokymosi įstaigos valdymo sistema (pirmas etapas)
 # (REIKALAVIMAI NE GALUTINIAI IR GALI KEISTIS)
 
+Projekto reikalavimai:
 
-Prie sistemos galima prisijungti su skirtingom rolėm
-* administratoriaus, dėstyotojo, studento (gali tik administratorius)
+  Projekto kodas saugomas github'e
+  Projektui valdyti naudojamas maven 
+  Visa programos veikimo metu sukurta infrmacija saugoma failuose
+  Programos logika padengta unit testais
+  Vartotojo sąsajai naudojama konsolė
 
-Pradinėje stadijoje visa informacija turi būti išsaugojama failuose (vėliau db)
+Funkcionalumo reikalavimai:
 
-Turėtų leisti sukurti:
-* dėstyotojo, studento ir kurso įrašą
-* pridėti dėstytoją ir studentus prie kurso (gali tik administratorius)
+  Pirmą kartą paleidus programą turi egzistuoti vartotojas admin su slaptažodžiu admin, kuris turėtų admin rolę ir galėtų atlikti viskas operacijas programoje.
 
-Turėtų leisti pakeisti informaciją apie:
-* dėstyotoją (gali tik administratorius ir pats dėstytojas) , studento (gali tik administratorius ir pats studentas) 
-ir kurso įrašą (gali tik administratorius ir pats dėstytojas)
-* pridėti dėstytoją ir studentus prie kurso (gali tik administratorius)
+  Prie sistemos galima prisijungti suvedus username ir password.
 
-Turėtų leisti sužinoti:
-* dėstyotojų, studentų ir kursų sąrašus
+  Sistemoje naujas vartotojus gali užsiregistruoti tik vartotojai su admin role
+  įvedę:
+    firstName, secondName, password
+  pasirinkę:
+    rolę iš admin, lecturer, student
+
+  Vartotojai turintys rolę lecturer arba student gali keisti, pridėti informaciją apie save
+    firstName
+    lastName
+    personalNumber
+    dateOfBirth
+    email
+    mobileNumber
+    gender
+    address
+    runningCourses (kursai, kuriuos veda)
+
+  Vartotojai turintys rolę admin gali:    
+    pridėti course
+      code
+      tittle
+      desciption
+      startDate
+      credit
+      lecturerCode
+    pamatyti visų studentų sąrašą
+    pamatyti visų kursų sąrašą
+
+   Vartotojai su student role gali:
+    užsiregistruoti į kursą kai:
+      kurso startDate yra ankstenė už dabatinę
+      bendra užseregistuotų kursų kreditų suma mažesnė us 12
+
+   Vartotojai su lecturer role gali:
+    matyti jam priskirtus kursus
+    matyti į kursą užsiregistravusius studentus
+
+
