@@ -56,7 +56,7 @@ FUNKCIONALUMO REIKALAVIMAI:
       * kurso startDate yra ankstenė už dabatinę
       * bendra užseregistuotų kursų kreditų suma mažesnė us 12
 
-   * Vartotojai su lecturer role gali:
+  * Vartotojai su lecturer role gali:
     * matyti jam priskirtus kursus
     * matyti į kursą užsiregistravusius studentus
 
