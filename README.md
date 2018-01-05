@@ -18,13 +18,14 @@ FUNKCIONALUMO REIKALAVIMAI:
   * Sistemoje naujus vartotojus gali užsiregistruoti tik vartotojai su admin role
 ```
   įvedę:
-    firstName, secondName, password
+    firstName, secondName, password, userName
   pasirinkę:
     rolę iš admin, lecturer, student
 ```
 
   * Vartotojai turintys rolę lecturer arba student gali turėti ir keisti, pridėti informaciją apie save
 ```
+    userName
     firstName
     lastName
     personalNumber
