@@ -23,7 +23,7 @@ FUNKCIONALUMO REIKALAVIMAI:
     rolę iš admin, lecturer, student
 ```
 
-  * Vartotojai turintys rolę lecturer arba student gali keisti, pridėti informaciją apie save
+  * Vartotojai turintys rolę lecturer arba student gali turėti ir keisti, pridėti informaciją apie save
 ```
     firstName
     lastName
@@ -34,6 +34,10 @@ FUNKCIONALUMO REIKALAVIMAI:
     gender
     address
     runningCourses (kursai, kuriuos veda)
+    
+    studentCode - tik student
+    lecturerCode - tik lecturer
+    
 
 ```
   * Vartotojai turintys rolę admin gali
