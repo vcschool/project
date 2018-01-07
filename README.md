@@ -36,8 +36,9 @@ FUNKCIONALUMO REIKALAVIMAI:
     address
     runningCourses (kursai, kuriuos veda)
     
-    studentCode - tik student
-    lecturerCode - tik lecturer
+    Papildyta
+    studentCode - negali būti keičiamasturi, turi būti unikalus ir sukuriamas naujo vartotojo kūrimo metu.
+    lecturerCode - negali būti keičiamasturi, turi būti unikalus ir sukuriamas naujo vartotojo kūrimo metu.
     
 
 ```
