@@ -22,7 +22,7 @@ public class IOObjectStreamUtils {
 
     }
 
-    public static void writeFirstObjectFromFile(String fileName, Object o) {
+    public static void writeObjectToFile(String fileName, Object o) {
         try (
                 ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(fileName))
         ) {

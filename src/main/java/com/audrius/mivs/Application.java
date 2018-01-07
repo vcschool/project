@@ -20,7 +20,7 @@ public class Application {
             //Jei configuration failas nubuvo rastas, mes sukuriam Configuration klasę ir ją įrašom į configuration failą.
             Configuration configuration = new Configuration();
             configuration.setInitialized(true);
-            IOObjectStreamUtils.writeFirstObjectFromFile("configuration", configuration);
+            IOObjectStreamUtils.writeObjectToFile("configuration", configuration);
         }
         //Inicializuojame programos pradinius duomenis
         initializeData();
@@ -30,6 +30,6 @@ public class Application {
         //Sukuriame Admin ir įdedame į HashMapą, kurį išsaugome users faile
         HashMap<String, User> users = new HashMap<>();
         users.put("admin", new Admin("admin", "Super", "Admin", "admin"));
-        IOObjectStreamUtils.writeFirstObjectFromFile("users", users);
+        IOObjectStreamUtils.writeObjectToFile("users", users);
     }
 }
