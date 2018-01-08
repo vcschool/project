@@ -70,4 +70,5 @@ FUNKCIONALUMO REIKALAVIMAI:
 # Antras etapas
 
 PAPILDOMI PROJEKTO REIKALAVIMAI:
+
 Visos su vartotoju nesusijusios žinutės turi būti loginamos į log.out failą.
