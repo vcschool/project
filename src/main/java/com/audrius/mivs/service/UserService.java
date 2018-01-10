@@ -16,7 +16,7 @@ public class UserService {
             System.out.print("Password: ");
             String password = ScannerUtils.scanString();
 
-            User user = UserService.findUser(username);
+            User user = findUser(username);
             if (user != null
                     && username.equals(user.getUserName())
                     && password.equals(user.getPassword())) {

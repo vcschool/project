@@ -15,7 +15,7 @@ public class MIVS {
             case ADMIN: userInterface = new AdminUserInterface();
         }
 
-        userInterface.open(user);
+        userInterface.openMainMenu(user);
     }
 
 

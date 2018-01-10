@@ -8,7 +8,7 @@ public class AdminUserInterface implements UserInterface {
     private Admin adminUser;
 
     @Override
-    public void open(User user) {
+    public void openMainMenu(User user) {
         this.adminUser = (Admin) user;
         System.out.println("Administration menu");
         while (true) {
