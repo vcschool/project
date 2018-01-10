@@ -67,3 +67,8 @@ FUNKCIONALUMO REIKALAVIMAI:
     * matyti į kursą užsiregistravusius studentus
 
 
+# Antras etapas
+
+PAPILDOMI PROJEKTO REIKALAVIMAI:
+
+Visos su vartotoju nesusijusios žinutės turi būti loginamos į log.out failą.
