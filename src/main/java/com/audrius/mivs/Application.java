@@ -13,23 +13,21 @@ public class Application {
     static void initialize() {
         Configuration configuration;
         if (!new File("configuration").exists()) {
-            configuration = createConfigurationFile();
+            createConfigurationFile();
+            initializeData();
         } else {
             configuration = getConfigurationFromFile();
+            if (doesConfigurationIsNotInitialized(configuration)) {
+                initializeData();
+            }
         }
-
-        if (configuration != null && configuration.isInitialized()) {
-            return;
-        }
-        initializeData();
     }
 
-    private static Configuration createConfigurationFile() {
+    private static void createConfigurationFile() {
         Configuration configuration;
         configuration = new Configuration();
         configuration.setInitialized(true);
         IOObjectStreamUtils.writeObjectToFile("configuration", configuration);
-        return configuration;
     }
 
     private static Configuration getConfigurationFromFile() {
@@ -39,6 +37,10 @@ public class Application {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private static boolean doesConfigurationIsNotInitialized(Configuration configuration) {
+        return configuration == null || !configuration.isInitialized();
     }
 
     private static void initializeData() {
