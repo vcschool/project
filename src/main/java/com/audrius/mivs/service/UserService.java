@@ -1,5 +1,9 @@
 package com.audrius.mivs.service;
 
+import com.audrius.mivs.model.Admin;
+import com.audrius.mivs.model.Lecturer;
+import com.audrius.mivs.model.Role;
+import com.audrius.mivs.model.Student;
 import com.audrius.mivs.model.User;
 import com.audrius.mivs.utils.IOObjectStreamUtils;
 import com.audrius.mivs.utils.ScannerUtils;
@@ -11,10 +15,8 @@ public class UserService {
     public static User login() {
         System.out.println("Welcome! Please login.");
         while (true) {
-            System.out.print("Username: ");
-            String username = ScannerUtils.scanString();
-            System.out.print("Password: ");
-            String password = ScannerUtils.scanString();
+            String username = ScannerUtils.scanString("Username:");
+            String password = ScannerUtils.scanString("Password: ");
 
             User user = findUser(username);
             if (user != null
@@ -34,5 +36,41 @@ public class UserService {
         } catch (FileNotFoundException e) {
             return null;
         }
+    }
+
+    public HashMap<String, User> findAllUsers() {
+        try {
+            return (HashMap<String, User>) IOObjectStreamUtils.readFirstObjectFromFile("users");
+        } catch (FileNotFoundException e) {
+            return null;
+        }
+    }
+
+    public void createUser(String firstName, String secondName, String userName, String password, Role role) {
+        User user = null;
+        switch (role) {
+            case ADMIN:
+                user = new Admin(firstName, secondName, userName, password);
+                break;
+            case STUDENT:
+                user = new Student(firstName, secondName, userName, password);
+                break;
+            case LECTURER:
+                user = new Lecturer(firstName, secondName, userName, password);
+                break;
+        }
+        try {
+            HashMap<String, User> users = (HashMap<String, User>) IOObjectStreamUtils.readFirstObjectFromFile("users");
+            users.put(user.getUserName(), user);
+            IOObjectStreamUtils.writeObjectToFile("users", users);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void save(User user) {
+        HashMap<String, User> allUsers = findAllUsers();
+        allUsers.put(user.getUserName(), user);
+        IOObjectStreamUtils.writeObjectToFile("users", allUsers);
     }
 }
