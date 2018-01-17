@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 public class UserService {
-    public static User login() {
+    public User login() {
         System.out.println("Welcome! Please login.");
         while (true) {
             String username = ScannerUtils.scanString("Username:");
@@ -26,6 +26,16 @@ public class UserService {
             }
             System.out.println("Login failed, please try again");
         }
+    }
+
+    public User login(String userName, String password) {
+        User user = findUser(userName);
+        if (user != null
+                && userName.equals(user.getUserName())
+                && password.equals(user.getPassword())) {
+            return user;
+        }
+        return null;
     }
 
     public static User findUser(String username) {
@@ -61,6 +71,9 @@ public class UserService {
         }
         try {
             HashMap<String, User> users = (HashMap<String, User>) IOObjectStreamUtils.readFirstObjectFromFile("users");
+            if (users.containsKey(userName)) {
+
+            }
             users.put(user.getUserName(), user);
             IOObjectStreamUtils.writeObjectToFile("users", users);
         } catch (FileNotFoundException e) {
