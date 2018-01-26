@@ -48,48 +48,6 @@ public class CourseRepository {
 
     }
 
-    public User findByUserName(String userName) {
-        try (
-                Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-                PreparedStatement statement = connection.prepareStatement(
-                        "SELECT * FROM user WHERE username = ?"
-                )
-        ) {
-            statement.setString(1, userName);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (!resultSet.next()) {
-                return null;
-            }
-
-            switch (resultSet.getString("role")) {
-                case "ADMIN":
-                    return new Admin(resultSet.getString("firstName"),
-                            resultSet.getString("secondName"),
-                            resultSet.getString("userName"),
-                            resultSet.getString("password"));
-                case "LECTURER":
-                    return new Lecturer(resultSet.getString("firstName"),
-                            resultSet.getString("secondName"),
-                            resultSet.getString("userName"),
-                            resultSet.getString("password"));
-                case "STUDENT":
-                    return new Student(resultSet.getString("firstName"),
-                            resultSet.getString("secondName"),
-                            resultSet.getString("userName"),
-                            resultSet.getString("password"));
-                default:
-                    return null;
-
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
     public void createCourse(String courseCode, String title, String description, LocalDate startDate, String lecturerUserName) {
         try (
                 Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
