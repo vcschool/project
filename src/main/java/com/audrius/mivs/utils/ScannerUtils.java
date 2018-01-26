@@ -2,6 +2,8 @@ package com.audrius.mivs.utils;
 
 import com.audrius.mivs.model.Role;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ public class ScannerUtils {
 
     public static String scanString(String message) {
         System.out.println(message);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public static Role scanRole(String message) {
@@ -22,6 +24,20 @@ public class ScannerUtils {
                 return Role.valueOf(role);
             } catch (IllegalArgumentException e) {
                 System.out.println("Enter role correctly");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    public static LocalDate scanDate(String message) {
+        System.out.println(message);
+        String date;
+        while (true) {
+            try {
+                date = scanner.next();
+                return LocalDate.parse(date);
+            } catch (DateTimeParseException e) {
+                System.out.println("Enter date correctly");
                 scanner.nextLine();
             }
         }

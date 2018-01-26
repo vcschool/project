@@ -12,7 +12,9 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 public class UserService {
-    public static User login() {
+    private UserRepository userRepository = new UserRepository();
+
+    public User login() {
         System.out.println("Welcome! Please login.");
         while (true) {
             String username = ScannerUtils.scanString("Username:");
@@ -28,14 +30,8 @@ public class UserService {
         }
     }
 
-    public static User findUser(String username) {
-        HashMap<String, User> users;
-        try {
-            users = (HashMap<String, User>) IOObjectStreamUtils.readFirstObjectFromFile("users");
-            return users.get(username);
-        } catch (FileNotFoundException e) {
-            return null;
-        }
+    public User findUser(String username) {
+        return userRepository.findByUserName(username);
     }
 
     public HashMap<String, User> findAllUsers() {
@@ -47,25 +43,7 @@ public class UserService {
     }
 
     public void createUser(String firstName, String secondName, String userName, String password, Role role) {
-        User user = null;
-        switch (role) {
-            case ADMIN:
-                user = new Admin(firstName, secondName, userName, password);
-                break;
-            case STUDENT:
-                user = new Student(firstName, secondName, userName, password);
-                break;
-            case LECTURER:
-                user = new Lecturer(firstName, secondName, userName, password);
-                break;
-        }
-        try {
-            HashMap<String, User> users = (HashMap<String, User>) IOObjectStreamUtils.readFirstObjectFromFile("users");
-            users.put(user.getUserName(), user);
-            IOObjectStreamUtils.writeObjectToFile("users", users);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        userRepository.createUser(firstName, secondName, userName, password, role.toString());
     }
 
     public void save(User user) {

@@ -5,6 +5,8 @@ import com.audrius.mivs.model.Course;
 import com.audrius.mivs.model.Lecturer;
 import com.audrius.mivs.model.Student;
 import com.audrius.mivs.model.User;
+import com.audrius.mivs.service.CourseRepository;
+import com.audrius.mivs.service.UserRepository;
 import com.audrius.mivs.utils.IOObjectStreamUtils;
 
 import java.io.File;
@@ -51,16 +53,16 @@ public class Application {
     }
 
     private static void initUsers() {
-        HashMap<String, User> users = new HashMap<>();
-        Admin admin = new Admin("Admin", "Super", "admin", "admin");
-        Lecturer lecturer = new Lecturer("Audrius", "Gurskis", "augu", "augu");
-        users.put(admin.getUserName(), admin);
-        users.put(lecturer.getUserName(), lecturer);
-        IOObjectStreamUtils.writeObjectToFile("users", users);
+        UserRepository userRepository = new UserRepository();
+        userRepository.createTable();
+        if (userRepository.findByUserName("admin") == null) {
+            new UserRepository().createUser("admin", "admin", "admin", "admin", "ADMIN");
+        }
+
     }
 
-    private static void initCourses() {
-        HashMap<String, Course> courseHashMap = new HashMap<>();
-        IOObjectStreamUtils.writeObjectToFile("courses", courseHashMap);
+    private static void initCourses(){
+        new CourseRepository().createTable();
     }
+
 }

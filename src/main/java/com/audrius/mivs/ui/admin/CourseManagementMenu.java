@@ -48,11 +48,12 @@ class CourseManagementMenu {
         System.out.println();
         System.out.println("Add course");
         System.out.println("==========");
+        String courseCode = ScannerUtils.scanString("Enter cours code");
         String title = ScannerUtils.scanString("Enter title");
         String description = ScannerUtils.scanString("Enter description");
         LocalDate startDate = LocalDate.parse(ScannerUtils.scanString("Enter start date yyyy-mm-dd"));
         String userName = ScannerUtils.scanString("Enter lecturer user name");
 
-        courseService.createCourse(title, description, startDate, userName);
+        courseService.createCourse(courseCode,title, description, startDate, userName);
     }
 }

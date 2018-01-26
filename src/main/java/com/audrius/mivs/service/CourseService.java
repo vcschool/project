@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 public class CourseService {
     private UserService userService = new UserService();
+    private CourseRepository courseRepository = new CourseRepository();
 
     public HashMap<String, Course> findAllCourses() {
         try {
@@ -21,18 +22,12 @@ public class CourseService {
         }
     }
 
-    public void createCourse(String title, String description, LocalDate startDate, String userName) {
-        User user = userService.findUser(userName);
+    public void createCourse(String courseCode, String title, String description, LocalDate startDate, String lecturerUserName) {
+        User user = userService.findUser(lecturerUserName);
         if (user != null && user.getRole() != Role.LECTURER) {
             System.out.println("This user can not drive the course");
             return;
         }
-        Course course = new Course(title, description, startDate, user.getUserId());
-        ((Lecturer) user).addLeadLecture(course.getCourseCode());
-        userService.save(user);
-
-        HashMap<String, Course> allCourses = findAllCourses();
-        allCourses.put(course.getCourseCode(), course);
-        IOObjectStreamUtils.writeObjectToFile("courses", allCourses);
+        courseRepository.createCourse(courseCode,title,description,startDate,lecturerUserName);
     }
 }
